@@ -53,7 +53,7 @@ config.yml 을 위와 같이 변경하였다. title, 연결 레포, 설명, 로�
 ### p.s.  
  so-simple-theme의 경우 배포시 config.yml에서 remote-theme을 설정하고 배포해줘야한다. 
 
-### Comment
+## Comment
 원래 깃 블로그를 운영할때는 disqus 를 통해 댓글을 관리하였는데, 
 패키지가 무겁고 설정하지 않은 광고 때문에 불편했다. 이 참에 깃 블로그를 정리하며 ["utterances"](https://github.com/apps/utterances)로 변경하였다. 
 먼저 위 사이트에서 사용하고자 하는 레포에 install 해주자. (나는 내 깃블로그에만 install 하였다)  
@@ -76,3 +76,34 @@ comments:
     issue_term: "pathname"
 ~~~
 를 추가하여 관련 정보를 설정해주자. 
+
+## Google Analytics
+블로그에 꼭 있는 기능인 조회수 기능, 혹은 페이지 방문자의 정보를 기록하기 위해서는 [Google Analytics](https://analytics.google.com/ ) 를 사용하면 된다. 후에 Advertisement 를 넣어 혹시 모를 수익창출을 기도하기에도 좋다.  
+링크에 들어가 회원가입 하자. 이후 Analytics 기능을 적용 시킬 계정의 이름, 웹사이트 이름, 웹사이트 주소, 카테고리, 사용 시간대를 설정해주자.
+이후 여러가지 약관에 확인 하면 추적 DB가 생긴다.  
+이제 우리가 만든 깃 블로그에 연결을 해줘야하는데 config.yml에 아래 부분을 추가해주자. 
+~~~
+google_analytics: 
+  provider: google
+  google:
+    tracking_id: ""
+~~~
+tracking_id 부분에는 Analytics에서 여러분의 트래킹 id를 확인하고 넣어주면 된다.  
+앞으로 두가지 부분만 해주면 된다. _includes/analytics.html를 생성하고 아래 코드를 넣어주자. 
+~~~
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=(여러분의 트래킹아이디)"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '여러분의 트래킹아이디');
+</script>
+~~~
+마지막으로 _layouts/default.html에 한줄만 추가해주면 끝이다. 
+~~~
+{% include analytics.html %}
+~~~
+
+git push 이후 Google Analytics 로 가보면 잘 연결 된걸 확인할 수 있다. 끄읕.
