@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "What is Git&GitHub?"
+title:  "What is Git & GitHub?"
 date:   2022-11-25 11:11:33 +0900
 categories: Kookmin_assignment 
+tags: Git
 ---
 
 

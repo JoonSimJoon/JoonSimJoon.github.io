@@ -81,7 +81,7 @@ plugins:
 
 # Collections
 collections:
-  recipes:
+  projects:
     output: true
     permalink: /:collection/:path/
 
@@ -95,10 +95,10 @@ defaults:
       layout: post
       comments: true
       share: true
-  # Recipe defaults
+  # projects defaults
   - scope:
-      path: "_recipes"
-      type: recipes
+      path: "_projects"
+      type: projects
     values:
       layout: post
       comments: true
