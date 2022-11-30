@@ -18,6 +18,7 @@ remote_theme: mmistakes/so-simple-theme
 skin: "/assets/css/skins/default.css"
 locale: en-US
 title: "JoonSimJoon_blog"
+repository: "JoonSimJoon/JoonSimJoon.github.io"
 description: "Woke up with yawning, it's dawnin. I'm still alive. Turned on my radio. To start up a new day"
 baseurl: "" # the subpath of your site, e.g. "/blog"
 url: # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -124,3 +125,9 @@ footer_links:
   - title: GitHub
     url: https://github.com/JoonSimJoon/
     icon: fab fa-github-square
+
+comments:
+  provider: "utterances"
+  utterances:
+    theme: "boxy-light"
+    issue_term: "pathname"
